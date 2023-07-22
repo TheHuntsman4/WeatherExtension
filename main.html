@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title>Document</title>
 </head>
 <body>
-    <div id = "weather-main">
-        <p id="greetingMessage"></p>
+    <div id = "weather-main" class="weather-main">
+        <p id="greetingMessage" class="greeting"></p>
         <div class="search">
             <input id="search-bar">
             <button id="search-button" class="search-button">
                 <img href="./images/search.png">
-            </button>        
+            </button>
+        <div class="weather-icon">
+            <img src="./images/clear-sky.png" height="30px" width="30px" class="weather-icon-image">
+            <h1 id="city-name"></h1>
+            <h2 id="weather-condition" class="weather-condition"></h2>
+            <h2 id="temp"></h2>
+        </div>        
         </div>
     </div>
 <script src="script.js"></script>

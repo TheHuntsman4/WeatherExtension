@@ -1,11 +1,18 @@
 body{
     width: 278px;
     height: 349px;
+    color: white;
+}
+
+
+.greeting{
+    font-size: 2rem;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .weather-main{
     width: 278px;
     height: 349px;
-
+    color: white;
+    background: linear-gradient(129deg, #A1973B 25.87%, #00D2EF 100%);
 }
-
