@@ -40,16 +40,46 @@ async function getWeather(city){
   
   
   const weather = data.weather[0].main;
-  if(weather == "Clear"){
-    weatherMain.style.background="linear-gradient(129deg, #A1973B 25.87%, #00D2EF 100%)";
+  console.log(weather);
 
-  }
-  else{
-    weatherMain.style.backgroundColor="black";
-  }
-
-
-
+  switch (weather){
+    case "Clear":
+      weatherMain.style.background="linear-gradient(129deg, #A1973B 25.87%, #00D2EF 100%)";
+      break;
+      case "Rain":
+        weatherMain.style.background="linear-gradient(129deg, #2C2A73 25.87%, rgba(140, 200, 255, 0.00) 100%)"
+        break;
+        case "Cloud":
+          weatherMain.style.background="inear-gradient(130deg, #2C2A73 25.87%, rgba(140, 200, 255, 0.00) 100%)"
+          break;
+        case "Snow":
+          weatherMain.style.background="";
+          break;
+        case "Thunderstorm":
+          weatherMain.style.background="";
+          break;
+        case "Drizzle":
+          weatherMain.style.background="";
+          break;
+        case "Mist":
+          weatherMain.style.background="";
+          break;
+        case "Fog":
+          weatherMain.style.background="";
+          break;
+        case "Windy":
+          weatherMain.style.background="";
+          break;
+        case "Heat Wave":
+          weatherMain.style.background="";
+          break;
+        case "Scorching":
+          weatherMain.style.background="";
+          break;
+      default:
+      weatherMain.style.background="black";
+      break;
+      }
 }
 
 searchButton.addEventListener("click",()=>{

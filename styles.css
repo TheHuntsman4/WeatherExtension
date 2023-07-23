@@ -1,12 +1,11 @@
-body{
-    width: 278px;
-    height: 349px;
-    color: white;
+*{
+    margin: 0 0 0 0;
 }
 
 
 .greeting{
     font-size: 2rem;
+    font-weight: 500;
     font-family: 'Source Sans 3', sans-serif;
 }
 
@@ -14,5 +13,42 @@ body{
     width: 278px;
     height: 349px;
     color: white;
+    padding: 1rem 1rem 1rem 1rem;
     background: linear-gradient(129deg, #A1973B 25.87%, #00D2EF 100%);
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.weather-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input{
+    border:0;
+    outline:0;
+    width: 200px;
+    height: 31px;
+    border-radius: 100px;
+    background: #D9D9D9;
+    margin: 16px;
+    padding:8px 8px 8px 16px;
+    font-size:1rem;
+
+}
+
+.search button{
+    border:0;
+    outline:0;
+    width: 100px;
+    height: 31px;
+    border-radius: 100px;
+    background: #D9D9D9;
+    margin-right:20px;
+    padding:16px 16px 32px 16px;
+
 }
