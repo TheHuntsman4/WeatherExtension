@@ -26,6 +26,19 @@ const conditionElement = document.getElementById("weather-condition");
 const tempElement = document.getElementById("temp");
 const weatherImage = document.getElementById("weather-image");
 
+async function loaclDataFunction(){
+
+var loaclData = await fetch(APIURL+"q="+"kollam"+`&appid=${APIKey}`);
+var kollamData= await loaclData.json();
+cityNameElement.innerHTML=kollamData.name;
+conditionElement.innerHTML=kollamData.weather[0].main;
+tempElement.innerHTML=kollamData.main.temp;" °C"
+
+console.log(kollamData);
+
+}
+
+loaclDataFunction();
 async function getWeather(city){
 
   const response = await fetch(APIURL+"q="+city+`&appid=${APIKey}`);
