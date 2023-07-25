@@ -56,7 +56,7 @@ async function getWeather(city){
           weatherImage.src="./images/clear-sky.png";
           break;
         case "Snow":
-          weatherMain.style.background="";
+          weatherMain.style.background="linear-gradient(to left top, #18cee9, #53d3e4, #73d8e1, #8edddf, #a5e1df)";
           weatherImage.src="./images/snowy.png";
           break;
         case "Thunderstorm":
@@ -64,29 +64,26 @@ async function getWeather(city){
           weatherImage.src="./images/thunder.png";
           break;
         case "Drizzle":
-          weatherMain.style.background="";
+          weatherMain.style.background="linear-gradient(to left top, #1873e9, #0079cc, #0076a3, #106d7c, #486261)";
           weatherImage.src="./images/overcast.png";
           break;
         case "Mist":
         case "Haze":
-          weatherMain.style.background="";
+          weatherMain.style.background="linear-gradient(to left top, #8eb0dc, #8dbbda, #96c4d7, #a5ccd3, #b7d3d2)";
           weatherImage.src="./images/haze.png";
           break;
         case "Fog":
-          weatherMain.style.background="";
+          weatherMain.style.background="linear-gradient(to left top, #8eb0dc, #7aa8c7, #709fb1, #6d959b, #6d8988)";
           weatherImage.src="./images/fog.png";
           break;
         case "Windy":
-          weatherMain.style.background="";
+          weatherMain.style.background="linear-gradient(to left top, #8eb0dc, #7aa8c7, #709fb1, #6d959b, #6d8988)";
           weatherImage.src="./images/windy.png";
           break;
         case "Heat Wave":
-          weatherMain.style.background="";
-          weatherImage.src="./images/heat-wave.png";
-          break;
         case "Scorching":
-          weatherMain.style.background="";
-          weatherImage.src="./images/heat-wave";
+          weatherMain.style.background="linear-gradient(to left top, #cacd7d, #ccb35a, #cf973e, #d2792d, #d35529)";
+          weatherImage.src="./images/heat-wave.png";
           break;
       default:
       weatherMain.style.background="black";
