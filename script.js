@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let message;
     if(Time>=0 && Time<12){
-        message="Good Morning";
+        message="Good Morning 🌞";
     }
     else if(Time>=12 && Time < 18){
-        message="Good Afternoon";
+        message="Good Afternoon 🌤️";
     }
     else{
-        message="Good Evening"
+        message="Good Evening 🌚"
     }
     greetingElement.innerHTML=message;
 });
@@ -35,6 +35,7 @@ var loaclData = await fetch(APIURL+"q="+"kollam"+`&appid=${APIKey}`);
 var kollamData= await loaclData.json();
 cityNameElement.innerHTML=kollamData.name;
 conditionElement.innerHTML=kollamData.weather[0].main;
+weatherSwitch(kollamData.weather[0].main);
 tempElement.innerHTML=kollamData.main.temp;" °C"
 
 console.log(kollamData);
@@ -50,11 +51,15 @@ async function getWeather(city){
   console.log(data);
   console.log(query.value);
   console.log(data.name);
+  console.log(data.message);
 
-  if  (data.name == "undefined"){
-    cityNameElement.innerHTML="No such city exists"
+  if  (data.message == "city not found"){
+    cityNameElement.innerHTML="No city found"
     tempElement.innerHTML="Error";
-    conditionElement.innerHTML="Error"
+    conditionElement.innerHTML="Error";
+    weatherMain.style.backgroundImage='url(./images/sad.png)';
+    greetingElement.style.color="black";
+    weatherData.style.color="black";
   }
   else{
   cityNameElement.innerHTML=data.name;
@@ -66,66 +71,97 @@ async function getWeather(city){
 
 
   console.log(weather);
+  weatherSwitch(weather);
+}
+
+function weatherSwitch(weather){
   switch (weather){
     case "Clear":
-      weatherMain.style.backgroundImage='url("./images/snow.gif)';
-      weatherImage.src="./images/clear-sky.png";
+      weatherMain.style.backgroundImage='url("./images/mist.gif")';
+        weatherMain.style.backgroundPosition=" center center";
+        weatherMain.style.backgroundRepeat="no-repeat";
+        weatherMain.style.backgroundSize = 'cover';
+        greetingElement.style.color="black";
+        weatherData.style.color="black";
       break;
       case "Rain":
       weatherMain.style.backgroundImage='url("./images/rain.gif")';
         weatherMain.style.backgroundPosition=" center center";
         weatherMain.style.backgroundRepeat="no-repeat";
         weatherMain.style.backgroundSize = 'cover';
-        greetingElement.style.color="black";
-        weatherData.color="black";
+        greetingElement.style.color="white";
+        weatherData.style.color="white";
         break;
         case "Clouds":
           weatherMain.style.backgroundImage='url("./images/cloudy.gif")';
           weatherMain.style.backgroundPosition=" center center";
           weatherMain.style.backgroundRepeat='no-repeat';
+          weatherMain.style.backgroundSize = 'cover';
           weatherData.style.color='black';  
           greetingElement.style.color="black";  
           break;
         case "Snow":
-          weatherMain.style.backgroundImage='url("./images/snow.gif)';
+          weatherMain.style.backgroundImage='url("./images/snow.gif")';
           weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundSize = 'cover';
           weatherMain.style.backgroundPosition="center center";
           weatherImage.src="./images/snowy.png";
           break;
         case "Thunderstorm":
-          weatherMain.style.backgroundImage='url("./images/thunderstorm.gif)'
+          weatherMain.style.backgroundImage='url("./images/thunderstorm.gif")'
           weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundSize = 'cover';
           weatherMain.style.backgroundRepeat="no-repeat";
+    
           weatherImage.src="./images/thunder.png";
           break;
         case "Drizzle":
-          weatherMain.style.background="linear-gradient(to left top, #1873e9, #0079cc, #0076a3, #106d7c, #486261)";
-          weatherImage.src="./images/overcast.png";
+          weatherMain.style.backgroundImage='url("./images/drizzle.gif")'
+          weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundSize = 'cover';
+          weatherData.style.color="white";
+          greetingElement.style.color="white";
           break;
         case "Mist":
         case "Haze":
-          weatherMain.style.background="linear-gradient(to left top, #8eb0dc, #8dbbda, #96c4d7, #a5ccd3, #b7d3d2)";
-          weatherImage.src="./images/haze.png";
+          weatherMain.style.backgroundImage='url("./images/fog.gif")'
+          weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundSize = 'cover';
+          weatherData.style.color="white";
+          greetingElement.style.color="white";
           break;
         case "Fog":
-          weatherMain.style.background="linear-gradient(to left top, #8eb0dc, #7aa8c7, #709fb1, #6d959b, #6d8988)";
-          weatherImage.src="./images/fog.png";
+          weatherMain.style.backgroundImage='url("./images/fog.gif")'
+          weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundSize = 'cover';
+          weatherData.style.color="white";
+          greetingElement.style.color="white";
           break;
         case "Windy":
-          weatherMain.style.background="linear-gradient(to left top, #8eb0dc, #7aa8c7, #709fb1, #6d959b, #6d8988)";
-          weatherImage.src="./images/windy.png";
+          weatherMain.style.backgroundImage='url("./images/wind.gif")'
+          weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundSize = 'cover';
+          weatherData.style.color="black";
+          greetingElement.style.color="black";
           break;
         case "Heat Wave":
         case "Scorching":
-          weatherMain.style.background="linear-gradient(to left top, #cacd7d, #ccb35a, #cf973e, #d2792d, #d35529)";
-          weatherImage.src="./images/heat-wave.png";
+          weatherMain.style.backgroundImage='url("./images/heatwave.gif")'
+          weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundSize = 'cover';
+          weatherData.style.color="black";
+          greetingElement.style.color="black";
           break;
       default:
       weatherMain.style.background="black";
       break;
       }
 }
-
 searchButton.addEventListener("click",()=>{
   getWeather(query.value);
 })

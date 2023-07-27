@@ -15,7 +15,7 @@
     height: 325px;
     color: white;
     padding: 1rem 1rem 1rem 1rem;
-    background-color: black;
+    background-image: linear-gradient(to left top, #ff7900, #be6507, #844e10, #503515, #231d16);
 }
 
 .search{
