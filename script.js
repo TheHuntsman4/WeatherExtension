@@ -118,12 +118,17 @@ function weatherSwitch(weather){
           weatherMain.style.backgroundSize = 'cover';
           weatherMain.style.backgroundPosition="center center";
           weatherImage.src="./images/snowy.png";
+          weatherData.style.color='black';  
+          greetingElement.style.color="black";
           break;
         case "Thunderstorm":
           weatherMain.style.backgroundImage='url("./images/thunderstorm.gif")'
           weatherMain.style.backgroundPosition="center center";
           weatherMain.style.backgroundSize = 'cover';
           weatherMain.style.backgroundRepeat="no-repeat";
+          weatherData.style.color='white';  
+          greetingElement.style.color="white";
+
     
           weatherImage.src="./images/thunder.png";
           break;
