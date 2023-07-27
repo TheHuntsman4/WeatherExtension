@@ -3,8 +3,11 @@ document.addEventListener("DOMContentLoaded", function(){
     const Time = new Date().getHours();
 
     let message;
-    if(Time>=0 && Time<12){
-        message="Good Morning 🌞";
+    if(Time>=0 && Time<6){
+        message="Good Morning ";
+    }
+    else if(Time>=6 && Time<12){
+      message="Good Morning 🌞"
     }
     else if(Time>=12 && Time < 18){
         message="Good Afternoon 🌤️";
@@ -44,10 +47,19 @@ console.log(kollamData);
 
 loaclDataFunction();
 async function getWeather(city){
-
+  if(city!=""){
   const response = await fetch(APIURL+"q="+city+`&appid=${APIKey}`);
   var data = await response.json();
-
+  }
+  else{
+    cityNameElement.innerHTML=""
+    tempElement.innerHTML="No city found";
+    tempElement.style.fontSize="50px"
+    conditionElement.innerHTML="";
+    weatherMain.style.backgroundImage='url(./images/sad.png)';
+    greetingElement.style.color="black";
+    weatherData.style.color="black";
+  }
   console.log(data);
   console.log(query.value);
   console.log(data.name);
@@ -55,8 +67,8 @@ async function getWeather(city){
 
   if  (data.message == "city not found"){
     cityNameElement.innerHTML="No city found"
-    tempElement.innerHTML="Error";
-    conditionElement.innerHTML="Error";
+    tempElement.innerHTML="ERROR";
+    conditionElement.innerHTML="ERROR";
     weatherMain.style.backgroundImage='url(./images/sad.png)';
     greetingElement.style.color="black";
     weatherData.style.color="black";
