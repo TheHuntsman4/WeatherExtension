@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function(){
     const greetingElement = document.getElementById("greetingMessage");
     const Time = new Date().getHours();
@@ -19,12 +20,15 @@ const APIKey = "0583365f139ec165ccba2b00c1ea7b11";
 const APIURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&";
 
 const weatherMain = document.getElementById("weather-main");
+const weatherData= document.getElementById("weatherData");
 const query = document.querySelector(".search input");
 const searchButton = document.querySelector(".search button");
 const cityNameElement = document.getElementById("city-name");
 const conditionElement = document.getElementById("weather-condition");
 const tempElement = document.getElementById("temp");
 const weatherImage = document.getElementById("weather-image");
+
+
 
 async function loaclDataFunction(){
 
@@ -48,32 +52,49 @@ async function getWeather(city){
   console.log(query.value);
   console.log(data.name);
 
+  if  (data.name == "undefined"){
+    cityNameElement.innerHTML="No such city exists"
+    tempElement.innerHTML="Error";
+    conditionElement.innerHTML="Error"
+  }
+  else{
   cityNameElement.innerHTML=data.name;
   tempElement.innerHTML=data.main.temp+" °C";
   conditionElement.innerHTML=(data.weather[0].main);
-  
+  }
   
   const weather = data.weather[0].main;
+
+
   console.log(weather);
   switch (weather){
     case "Clear":
-      weatherMain.style.background="linear-gradient(129deg, #A1973B 25.87%, #00D2EF 100%)";
+      weatherMain.style.backgroundImage='url("./images/snow.gif)';
       weatherImage.src="./images/clear-sky.png";
       break;
       case "Rain":
-        weatherMain.style.background="linear-gradient(129deg, #2C2A73 25.87%, rgba(140, 200, 255, 0.00) 100%)"
-        weatherImage.src="./images/raining.png";
+      weatherMain.style.backgroundImage='url("./images/rain.gif")';
+        weatherMain.style.backgroundPosition=" center center";
+        weatherMain.style.backgroundRepeat="no-repeat";
+        weatherMain.style.backgroundSize = 'cover';
+        weatherData.color="black";
         break;
         case "Clouds":
-          weatherMain.style.background="linear-gradient(130deg, #2C2A73 25.87%, rgba(140, 200, 255, 0.00) 100%)"
-          weatherImage.src="./images/clear-sky.png";
+          weatherMain.style.backgroundImage='url("./images/cloudy.gif")';
+          weatherMain.style.backgroundPosition=" center center";
+          weatherMain.style.backgroundRepeat='no-repeat';
+          weatherData.style.color='black';    
           break;
         case "Snow":
-          weatherMain.style.background="linear-gradient(to left top, #18cee9, #53d3e4, #73d8e1, #8edddf, #a5e1df)";
+          weatherMain.style.backgroundImage='url("./images/snow.gif)';
+          weatherMain.style.backgroundRepeat="no-repeat";
+          weatherMain.style.backgroundPosition="center center";
           weatherImage.src="./images/snowy.png";
           break;
         case "Thunderstorm":
-          weatherMain.style.background="linear-gradient(129deg, #1E2627 25.87%, rgba(17, 183, 205, 0.00) 100%)";
+          weatherMain.style.backgroundImage='url("./images/thunderstorm.gif)'
+          weatherMain.style.backgroundPosition="center center";
+          weatherMain.style.backgroundRepeat="no-repeat";
           weatherImage.src="./images/thunder.png";
           break;
         case "Drizzle":
