@@ -4,17 +4,18 @@
 
 
 .greeting{
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: 500;
     font-family: 'Source Sans 3', sans-serif;
 }
 
 .weather-main{
+    font-family: 'JetBrains Mono';
     width: 275px;
     height: 325px;
     color: white;
     padding: 1rem 1rem 1rem 1rem;
-    background-image: url('./images/amfoss.png');
+    background-color: black;
 }
 
 .search{
@@ -28,6 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 1rem;
 }
 
 .search input{
@@ -55,19 +57,14 @@
 
 }
 
-#city-name{
-    margin:auto;
-}
 
 .weather-data-element{
-    display: flex;
-    flex-direction: row;
-    margin:0 1rem 0 1rem ;
+    margin-top: 20px;
+    font-size: 24px;
 }
 
-.temp{
-    margin: 2rem;
+#temp{
     font-family: 'JetBrains Mono';
-    font-size: 42px;
+    font-size: 50px;
     font-weight: 500;
 }

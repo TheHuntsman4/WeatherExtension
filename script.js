@@ -1,6 +1,5 @@
-
+const greetingElement = document.getElementById("greetingMessage");
 document.addEventListener("DOMContentLoaded", function(){
-    const greetingElement = document.getElementById("greetingMessage");
     const Time = new Date().getHours();
 
     let message;
@@ -59,7 +58,7 @@ async function getWeather(city){
   }
   else{
   cityNameElement.innerHTML=data.name;
-  tempElement.innerHTML=data.main.temp+" °C";
+  tempElement.innerHTML=data.main.temp+"°C";
   conditionElement.innerHTML=(data.weather[0].main);
   }
   
@@ -77,13 +76,15 @@ async function getWeather(city){
         weatherMain.style.backgroundPosition=" center center";
         weatherMain.style.backgroundRepeat="no-repeat";
         weatherMain.style.backgroundSize = 'cover';
+        greetingElement.style.color="black";
         weatherData.color="black";
         break;
         case "Clouds":
           weatherMain.style.backgroundImage='url("./images/cloudy.gif")';
           weatherMain.style.backgroundPosition=" center center";
           weatherMain.style.backgroundRepeat='no-repeat';
-          weatherData.style.color='black';    
+          weatherData.style.color='black';  
+          greetingElement.style.color="black";  
           break;
         case "Snow":
           weatherMain.style.backgroundImage='url("./images/snow.gif)';
