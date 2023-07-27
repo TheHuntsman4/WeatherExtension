@@ -41,8 +41,6 @@ conditionElement.innerHTML=kollamData.weather[0].main;
 weatherSwitch(kollamData.weather[0].main);
 tempElement.innerHTML=kollamData.main.temp;" °C"
 
-console.log(kollamData);
-
 }
 
 loaclDataFunction();
@@ -60,10 +58,6 @@ async function getWeather(city){
     greetingElement.style.color="black";
     weatherData.style.color="black";
   }
-  console.log(data);
-  console.log(query.value);
-  console.log(data.name);
-  console.log(data.message);
 
   if  (data.message == "city not found"){
     cityNameElement.innerHTML="No city found"
@@ -80,9 +74,6 @@ async function getWeather(city){
   }
   
   const weather = data.weather[0].main;
-
-
-  console.log(weather);
   weatherSwitch(weather);
 }
 
