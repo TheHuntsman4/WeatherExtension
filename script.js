@@ -1,4 +1,8 @@
 const greetingElement = document.getElementById("greetingMessage");
+function disableRightClick(event) {
+  event.preventDefault();
+}
+document.addEventListener('contextmenu', disableRightClick);
 document.addEventListener("DOMContentLoaded", function(){
     const Time = new Date().getHours();
 
