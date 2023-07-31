@@ -1,6 +1,6 @@
 {
     "name":"amFOSS WeatherCaster",
-    "version":"0.0.2",
+    "version":"0.0.3",
     "manifest_version":3,
     "action":{
         "default_popup":"main.html",
